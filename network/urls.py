@@ -1,15 +1,20 @@
 from django.urls import path
 
 from network.apps import NetworkConfig
-from network.views import (SupplierCreateAPIView, SupplierRetrieveAPIView, SupplierListAPIView,
-                           SupplierUpdateAPIView, SupplierDestroyAPIView)
+from network.views import (NetworkLinkCreateAPIView, NetworkLinkDestroyAPIView,
+                           NetworkLinkListAPIView, NetworkLinkRetrieveAPIView,
+                           NetworkLinkUpdateAPIView)
 
 app_name = NetworkConfig.name
 
 urlpatterns = [
-    path("supplier/create/", SupplierCreateAPIView.as_view(), name="supplier_create"),
-    path("supplier/list/", SupplierListAPIView.as_view(), name="supplier_list"),
-    path("supplier/<int:pk>/", SupplierRetrieveAPIView.as_view(), name="supplier_retrieve"),
-    path("supplier/update/", SupplierUpdateAPIView.as_view(), name="supplier_update"),
-    path("supplier/delete/", SupplierDestroyAPIView.as_view(), name="supplier_delete"),
+    path("link/create/", NetworkLinkCreateAPIView.as_view(), name="link_create"),
+    path("link/list/", NetworkLinkListAPIView.as_view(), name="link_list"),
+    path(
+        "link/<int:pk>/",
+        NetworkLinkRetrieveAPIView.as_view(),
+        name="link_retrieve",
+    ),
+    path("link/update/", NetworkLinkUpdateAPIView.as_view(), name="link_update"),
+    path("link/delete/", NetworkLinkDestroyAPIView.as_view(), name="link_delete"),
 ]
