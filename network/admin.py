@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from network.models import NetworkLink, Product, Contact
+from network.models import Contact, NetworkLink, Product
 
 
 @admin.register(Contact)
@@ -37,5 +37,4 @@ class NetworkLinkAdmin(admin.ModelAdmin):
 
     @admin.action(description="Очистить задолженность")
     def clear_debt(self, request, queryset):
-        default_value = NetworkLink._meta.get_field("debt").default
-        queryset.update(debt=default_value)
+        return queryset.update(debt=0.00)
