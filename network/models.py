@@ -7,6 +7,14 @@ class Contact(models.Model):
     city = models.CharField(max_length=150, verbose_name="Город")
     street = models.CharField(max_length=150, verbose_name="Улица")
     building = models.CharField(max_length=20, verbose_name="Номер дома")
+    network_link = models.ForeignKey(
+        "NetworkLink",
+        verbose_name="Звено",
+        on_delete=models.CASCADE,
+        related_name="NetworkLink",
+        blank=True,
+        null=True,
+    )
 
     class Mete:
         verbose_name = "Контакт"

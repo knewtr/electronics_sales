@@ -6,6 +6,11 @@ from network.models import Contact, NetworkLink, Product
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = (
+        "email",
+        "country",
+        "city",
+    )
+    list_filter = (
         "country",
         "city",
     )
@@ -17,14 +22,18 @@ class ProductAdmin(admin.ModelAdmin):
         "product_name",
         "product_model",
     )
+    list_filter = (
+        "product_model",
+        "product_date",
+    )
 
 
 @admin.register(NetworkLink)
 class NetworkLinkAdmin(admin.ModelAdmin):
     list_display = (
+        "id",
         "name",
         "type",
-        "contact",
         "supplier",
         "debt",
     )
@@ -32,7 +41,7 @@ class NetworkLinkAdmin(admin.ModelAdmin):
         "supplier",
         "name",
     )
-    list_filter = ("contact__city",)
+    list_filter = ("contact__city", "contact__country",)
     actions = ["clear_debt"]
 
     @admin.action(description="Очистить задолженность")

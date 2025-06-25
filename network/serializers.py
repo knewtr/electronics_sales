@@ -9,4 +9,4 @@ class NetworkLinkSerializer(ModelSerializer):
 
     class Meta:
         model = NetworkLink
-        fields = ("name", "type", "product", "supplier", "debt")
+        fields = ("id", "name", "type", "product", "supplier", "debt")
