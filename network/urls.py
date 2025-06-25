@@ -15,6 +15,8 @@ urlpatterns = [
         NetworkLinkRetrieveAPIView.as_view(),
         name="link_retrieve",
     ),
-    path("link/update/<int:pk>/", NetworkLinkUpdateAPIView.as_view(), name="link_update"),
+    path(
+        "link/update/<int:pk>/", NetworkLinkUpdateAPIView.as_view(), name="link_update"
+    ),
     path("link/delete/", NetworkLinkDestroyAPIView.as_view(), name="link_delete"),
 ]

@@ -41,7 +41,10 @@ class NetworkLinkAdmin(admin.ModelAdmin):
         "supplier",
         "name",
     )
-    list_filter = ("contact__city", "contact__country",)
+    list_filter = (
+        "contact__city",
+        "contact__country",
+    )
     actions = ["clear_debt"]
 
     @admin.action(description="Очистить задолженность")
